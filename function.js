@@ -1,27 +1,31 @@
+const { comments2, categories2 } = require('./data')
+
 const wordChecker = (comments, categories) => {
 
-  comments.map((comment, i) => {
+  comments.map((comment) => {
+
+    console.log(comment)
 
     let commentLength = comment.length
     let commentArr = comment.toLowerCase().split(' ')
-    console.log(comment)
-    for (let [key, value] of Object.entries(categories)) {
 
-      let wordLength = 0
+    for (let [categoryName, words] of Object.entries(categories)) {
 
-      value.map(word => { 
+      let lettersMatching = 0
+
+      words.map(word => {
         commentArr.map(str => {
-          if(str.includes(word)) {
-    
-            wordLength += word.length
-            
+          if (str.includes(word.toLowerCase())) {
+
+            lettersMatching += word.length
+
           }
         })
       })
-      
-      let categoryScore = ((wordLength/commentLength)*100).toFixed(2)
 
-      console.log(`${key} [${value}] = ${categoryScore}%`)
+      let categoryScore = ((lettersMatching / commentLength) * 100).toFixed(2)
+
+      console.log(`${categoryName} [${words}] = ${categoryScore}%`)
     }
   })
 
@@ -36,4 +40,4 @@ const categories = {
   D: ["brown", "back", "orange"], // = 11.62%
 }
 
-wordChecker(comments, categories)
+wordChecker(comments2, categories2)
