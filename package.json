@@ -1,0 +1,23 @@
+{
+  "name": "swipeguide",
+  "version": "1.0.0",
+  "description": "SwipeGuide assignment",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vdegraaf/SwipeGuide-Assignment.git"
+  },
+  "author": "Vincent",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vdegraaf/SwipeGuide-Assignment/issues"
+  },
+  "homepage": "https://github.com/vdegraaf/SwipeGuide-Assignment#readme",
+  "dependencies": {
+    "jest": "^24.8.0"
+  }
+}

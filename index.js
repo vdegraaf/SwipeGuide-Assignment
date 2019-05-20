@@ -1,20 +1,18 @@
-const { comments2, categories2 } = require('./data')
+const { comments, categories } = require('./data')
 
 const wordChecker = (comments, categories) => {
 
   comments.map((comment) => {
+    const commentLength = comment.length
+    const commentWordArr = comment.toLowerCase().split(' ')
 
     console.log(comment)
 
-    let commentLength = comment.length
-    let commentArr = comment.toLowerCase().split(' ')
-
     for (let [categoryName, words] of Object.entries(categories)) {
-
       let lettersMatching = 0
 
       words.map(word => {
-        commentArr.map(str => {
+        commentWordArr.map(str => {
           if (str.includes(word.toLowerCase())) {
 
             lettersMatching += word.length
@@ -26,18 +24,12 @@ const wordChecker = (comments, categories) => {
       let categoryScore = ((lettersMatching / commentLength) * 100).toFixed(2)
 
       console.log(`${categoryName} [${words}] = ${categoryScore}%`)
+
     }
   })
 
 }
 
-const comments = ["The quick brown fox jumps over the lazy dog"]
+wordChecker(comments, categories)
 
-const categories = {
-  A: ["quick", "jump"], // = 20.93%
-  B: ["fox", "dog"], // = 13.95%
-  C: ["lazy", "slow"], // = 9.3%
-  D: ["brown", "back", "orange"], // = 11.62%
-}
-
-wordChecker(comments2, categories2)
+module.exports = wordChecker;
