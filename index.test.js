@@ -1,4 +1,4 @@
-const wordChecker = require('./index');
+const wordChecker = require('./index')
 
 jest.spyOn(console, 'log')
 
@@ -19,9 +19,9 @@ test("if example assigment passes", () => {
   expect(console.log.mock.calls[2][0]).toMatch("13.95")
   expect(console.log.mock.calls[3][0]).toMatch("9.30")
   expect(console.log.mock.calls[4][0]).toMatch("11.63")
-});
+})
 
-test("if the number of console logs", () => {
+test("if the number of console logs is right", () => {
   const comments = ["Simple work you have here."]
   const categories = {
     A: ["makes", "jump"],
@@ -30,10 +30,10 @@ test("if the number of console logs", () => {
 
   expect(console.log.mock.calls.length).toBe(0)
   wordChecker(comments, categories)
-  expect(console.log.mock.calls.length).toBe((Object.keys(categories).length + comments.length))
-});
+  expect(console.log.mock.calls.length).toBe(3)
+})
 
-test("if 'It makes me laugh...' passes ", () => {
+test("if 'It makes me laugh...' passes correctly", () => {
   const comments = ["It makes me laugh..."]
   const categories = {
     A: ["makes", "jump"]
@@ -41,7 +41,7 @@ test("if 'It makes me laugh...' passes ", () => {
 
   wordChecker(comments, categories)
   expect(console.log.mock.calls[1][0]).toMatch("25.00")
-});
+})
 
 test("if capital insensitive", () => {
   const comments = ["I like your shapes :-)"]
@@ -51,7 +51,7 @@ test("if capital insensitive", () => {
 
   wordChecker(comments, categories)
   expect(console.log.mock.calls[1][0]).toMatch("27.27")
-});
+})
 
 test("if substring of words work", () => {
   const comments = ["Love your shot mate"]
@@ -61,7 +61,7 @@ test("if substring of words work", () => {
 
   wordChecker(comments, categories)
   expect(console.log.mock.calls[1][0]).toMatch("15.79")
-});
+})
 
 test("if mulptiple comments work", () => {
   const comments = ["Love your shot mate",  "Just fresh.",  "Excellent atmosphere m8"]
@@ -75,9 +75,9 @@ test("if mulptiple comments work", () => {
   expect(console.log.mock.calls[1][0]).toMatch("21.05")
   expect(console.log.mock.calls[6][0]).toMatch("36.36")
   expect(console.log.mock.calls[11][0]).toMatch("39.13")
-});
+})
 
 
 afterEach(() => {
   jest.clearAllMocks()
-});
+})
