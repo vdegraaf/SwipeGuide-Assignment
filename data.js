@@ -7,7 +7,7 @@ const comments = [
   "It's fun not just splendid!",
   "Just fresh.",
   "My 49 year old dad rates this style very delightful dude",
-  " think I'm crying. It's that revolutionary.",
+  "I think I'm crying. It's that revolutionary.",
   "Trying it now.",
   "Gorgeous. So minimal.",
   "Excellent atmosphere m8",

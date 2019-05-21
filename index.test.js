@@ -50,7 +50,7 @@ test("if capital insensitive", () => {
   }
 
   wordChecker(comments, categories)
-  expect(console.log.mock.calls[1][0]).toMatch("27.27")
+  expect(console.log.mock.calls[1][0]).toMatch("22.73")
 })
 
 test("if substring of words work", () => {
